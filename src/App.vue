@@ -3,16 +3,31 @@
     <material>
       <router-view/>
     </material>
+
+    <notifications></notifications>
   </div>
 </template>
 
 <script>
 import Navigation from '@/components/Navigation'
+import Notifications from '@/components/Notifications'
+import NotificationStore from '@/components/NotificationStore'
 
 export default {
   name: 'App',
   components: {
-    'material': Navigation
+    'material': Navigation,
+    'notifications': Notifications
+  },
+  data(){
+    return {
+      showAlert: false
+    }
+  },
+  methods: {
+    alert: function() {
+      this.showAlert = true;
+    }
   }
 }
 </script>
